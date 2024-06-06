@@ -46,7 +46,7 @@ def train(model, train_loader):
             loss.backward()
             optimizer.step()
             running_loss += loss.item()
-            break
+            
         print(f'[{epoch + 1}] loss: {running_loss / len(train_loader):.3f}')
         running_loss = 0.0
     print('Finished Training')
@@ -73,7 +73,7 @@ def evaluate(model, test_loader):
             total += labels.size(0)
             correct += (predicted == labels).sum().item()
             print(labels, predicted)
-            break
+            
     print(f'Accuracy of the network : {100 * correct // total} %')
     print('Finished Evaluating')
 
